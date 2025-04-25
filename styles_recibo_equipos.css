@@ -1,0 +1,160 @@
+/* --- Estilos Generales --- */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    min-height: 100vh;
+    background-image: url('imagenes/2.jpg'); /* Manteniendo la imagen de fondo */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.header {
+    background-color: rgba(252, 252, 252, 0.8);
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo {
+    max-height: 50px;
+}
+
+.header .title {
+    margin: 0;
+    font-size: 2em;
+}
+
+.menu {
+    background-color: rgba(221, 221, 221, 0.8);
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+.container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 80%; /* Reducimos el ancho inicial */
+    max-width: 400px; /* Reducimos el ancho máximo */
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Ajustamos el ancho mínimo de las columnas */
+    gap: 20px;
+    align-items: start;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    grid-column: 1 / -1; /* Ocupa toda la fila del grid */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column; /* Apila la etiqueta y el input */
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    text-align: left;
+    color: #555;
+    font-weight: bold; /* Resalta las etiquetas */
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    min-height: 80px; /* Altura mínima para el área de texto */
+}
+
+.form-group-radio {
+    display: flex;
+    align-items: center;
+}
+
+.form-group-radio label {
+    font-weight: normal;
+    margin-right: 15px;
+}
+
+.form-group-radio input[type="radio"] {
+    margin-right: 5px;
+}
+
+.fieldset {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+}
+
+.fieldset legend {
+    font-weight: bold;
+    color: #333;
+    padding: 0 10px;
+}
+
+.fieldset label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    grid-column: 1 / -1; /* Ocupa toda la fila para el botón */
+    margin-top: 20px; /* Espacio antes del botón */
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}

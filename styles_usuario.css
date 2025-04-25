@@ -1,0 +1,16 @@
+.user-info {
+    position: absolute; /* Para posicionarlo relativamente al body o un contenedor padre */
+    top: 10px; /* Ajusta la distancia desde la parte superior */
+    right: 20px; /* Ajusta la distancia desde la derecha */
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo suave */
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    color: #555;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#nombre-usuario {
+    font-weight: bold;
+    color: #333;
+}

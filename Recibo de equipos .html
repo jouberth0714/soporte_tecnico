@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo de equipos</title>
+    <link rel="stylesheet" href="styles_recibo_equipos.css"> </head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
+        </div>
+        <h1 class="title">Recibo de equipos</h1>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
+            <li><a href="salida-equipos .html">Salida de equipos</a></li>
+            <li><a href="generate-report.html">Generar Reporte</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Recibo de Equipos</h1>
+        <div class="form-group">
+            <label for="fecha">Fecha:</label>
+            <input type="date" id="fecha" name="fecha">
+        </div>
+        <div class="form-group">
+            <label for="ficha">Ficha:</label>
+            <input type="text" id="ficha" name="ficha">
+        </div>
+        <div class="form-group">
+            <label for="usuario">Usuario:</label>
+            <input type="text" id="usuario" name="usuario">
+        </div>
+        <div class="form-group">
+            <label for="clave">Clave:</label>
+            <input type="text" id="clave" name="clave">
+        </div>
+        <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre">
+        </div>
+        <div class="form-group">
+            <label for="ext-tel">Ext./Tel.:</label>
+            <input type="text" id="ext-tel" name="ext-tel">
+        </div>
+        <div class="form-group form-group-radio">
+            <label>Respaldo:</label>
+            <label><input type="radio" name="respaldo" value="si"> Sí</label>
+            <label><input type="radio" name="respaldo" value="no"> No</label>
+        </div>
+        <div class="form-group">
+            <label for="gcia-dpto">Gcia./Dpto.:</label>
+            <input type="text" id="gcia-dpto" name="gcia-dpto">
+        </div>
+        <div class="form-group">
+            <label for="daet">Solicitud DAET:</label>
+            <input type="text" id="daet" name="daet">
+        </div>
+        <div class="form-group">
+            <label for="st">Solicitud S.T.:</label>
+            <input type="text" id="st" name="st">
+        </div>
+        <div class="form-group">
+            <label for="equipo">Equipo:</label>
+            <input type="text" id="equipo" name="equipo">
+        </div>
+        <div class="form-group">
+            <label for="marca">Marca:</label>
+            <input type="text" id="marca" name="marca">
+        </div>
+        <div class="form-group">
+            <label for="falla">Falla:</label>
+            <input type="text" id="falla" name="falla">
+        </div>
+        <fieldset class="fieldset" style="grid-column: 1 / -1;">
+            <legend>Componentes:</legend>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                <label><input type="checkbox" name="componentes[]" value="memoria-ram"> Memoria RAM</label>
+                <label><input type="checkbox" name="componentes[]" value="procesador"> Procesador</label>
+                <label><input type="checkbox" name="componentes[]" value="fan-cooler"> Fan Cooler</label>
+                <label><input type="checkbox" name="componentes[]" value="tarjeta-video"> Tarjeta de Video</label>
+                <label><input type="checkbox" name="componentes[]" value="disco-duro"> Disco Duro</label>
+                <label><input type="checkbox" name="componentes[]" value="tarjeta-red"> Tarjeta de Red</label>
+                <label><input type="checkbox" name="componentes[]" value="fuente-poder"> Fuente de Poder</label>
+                <label><input type="checkbox" name="componentes[]" value="canaimita"> Canaima</label>
+            </div>
+        </fieldset>
+        <fieldset class="fieldset" style="grid-column: 1 / -1;">
+            <legend>Equipo incluye:</legend>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                <label><input type="checkbox" name="perifericos[]" value="monitor"> Monitor</label>
+                <label><input type="checkbox" name="perifericos[]" value="mouse"> Mouse</label>
+                <label><input type="checkbox" name="perifericos[]" value="teclado"> Teclado</label>
+                <label><input type="checkbox" name="perifericos[]" value="regulador"> Regulador</label>
+            </div>
+        </fieldset>
+        <fieldset class="fieldset" style="grid-column: 1 / -1;">
+            <legend>Aplicativos:</legend>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px;">
+                <label><input type="checkbox" name="aplicativos[]" value="siquel"> Siquel</label>
+                <label><input type="checkbox" name="aplicativos[]" value="sap"> SAP</label>
+                <label><input type="checkbox" name="aplicativos[]" value="autocad"> AutoCAD</label>
+                <label><input type="checkbox" name="aplicativos[]" value="project"> Project</label>
+            </div>
+        </fieldset>
+        <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="otra-aplicacion">Otra Aplicación:</label>
+            <input type="text" id="otra-aplicacion" name="otra-aplicacion">
+        </div>
+        <div class="form-group" style="grid-column: 1 / -1;">
+            <label for="carpeta-red">Carpeta de Red:</label>
+            <input type="text" id="carpeta-red" name="carpeta-red">
+        </div>
+        <div class="form-group form-group-full" style="grid-column: 1 / -1;">
+            <label for="observacion">Observación:</label>
+            <textarea id="observacion" name="observacion"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="asignado">Asignado A:</label>
+            <input type="text" id="asignado" name="asignado">
+        </div>
+        <div class="form-group">
+            <label for="estatus">Estatus:</label>
+            <input type="text" id="estatus" name="estatus">
+        </div>
+        <div class="form-group">
+            <label for="entregado">Entregado Por:</label>
+            <input type="text" id="entregado" name="entregado">
+        </div>
+        <div class="form-group">
+            <label for="recibido">Recibido Por:</label>
+            <input type="text" id="recibido" name="recibido">
+        </div>
+        <button type="submit" class="submit-button">Guardar Recibo</button>
+
+    </div>
+</body>
+
+</html>

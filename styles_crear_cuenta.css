@@ -1,0 +1,145 @@
+/* --- Estilos Generales --- */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Color de respaldo */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el body ocupe al menos la altura del viewport */
+    margin: 0;
+    background-image: url('imagenes/2.jpg'); /* Imagen de fondo para toda la página */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* --- Estilos del Encabezado --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-container {
+    margin-right: 20px;
+}
+
+.logo {
+    max-height: 50px;
+}
+
+.header .title {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* --- Estilos del Menú de Navegación --- */
+.menu {
+    background-color: rgba(221, 221, 221, 0.8);
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #007bff;
+}
+
+/* --- Contenedor Principal de Crear Cuenta --- */
+.signup-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+    margin-left: auto; /* Empuja el contenedor hacia la derecha */
+    margin-right: 20px; /* Añade un margen derecho para separarlo del borde */
+}
+
+/* --- Título del Formulario de Crear Cuenta --- */
+.signup-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* --- Grupo de Formulario (Label + Input) --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* --- Etiqueta de los Campos --- */
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    text-align: left;
+}
+
+/* --- Campos de Entrada de Texto y Contraseña --- */
+input[type="text"],
+input[type="password"],
+input[type="email"] { /* Añadido estilo para el campo de email */
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* --- Botón de Crear Cuenta --- */
+.signup-container button {
+    background-color: #28a745; /* Color verde para crear cuenta */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.signup-container button:hover {
+    background-color: #1e7e34;
+}
+
+/* --- Enlace para Iniciar Sesión --- */
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+.signup-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}

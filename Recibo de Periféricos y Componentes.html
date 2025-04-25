@@ -1,0 +1,99 @@
+<?php 
+include("conexion.php");
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo de Periféricos y Componentes</title>
+    <link rel="stylesheet" href="styles_recibo_perifericos.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
+        </div>
+        <h1 class="title">Recibo de Periféricos y Componentes</h1>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="register-equipment.html">Recibo de Periféricos</a></li>
+            <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
+            <li><a href="salida-equipos .html">salida de equipos</a></li>
+            <li><a href="generate-report.html">Reportes</a></li>
+        </ul>
+    </nav>
+
+    <main class="container">
+        <section class="form-section">
+            <h2>Recibo de perifericos</h2>
+            <form id="receipt-form" action="guardar-recibo.php" method="post" enctype="multipart/form-data">
+
+                <label for="date">Fecha:</label>
+                <input type="date" id="date" name="date" required>
+
+                <label for="record-number">Ficha:</label>
+                <input type="text" id="record-number" name="record-number">
+
+                <label for="user-name">Usuario:</label>
+                <input type="text" id="user-name" name="user-name">
+
+                <label for="extension-phone">Ext/Tlf:</label>
+                <input type="text" id="extension-phone" name="extension-phone">
+
+                <fieldset>
+                    <legend>Periféricos:</legend>
+                    <div>
+                        <label><input type="checkbox" name="peripherals[]" value="monitor"> Monitor</label>
+                        <label><input type="checkbox" name="peripherals[]" value="teclado"> Teclado</label>
+                        <label><input type="checkbox" name="peripherals[]" value="scanner"> Scanner</label>
+                        <label><input type="checkbox" name="peripherals[]" value="pendrives"> Pendrives</label>
+                        <label><input type="checkbox" name="peripherals[]" value="regulador"> Regulador</label>
+                        <label><input type="checkbox" name="peripherals[]" value="impresora"> Impresora</label>
+                        <label><input type="checkbox" name="peripherals[]" value="mouse"> Mouse</label>
+                        <label><input type="checkbox" name="peripherals[]" value="toner"> Tóner</label>
+                    </div>
+                </fieldset>
+
+                <label for="components">Componentes:</label>
+                <textarea id="components" name="components"></textarea>
+
+                <label for="others">Otros:</label>
+                <textarea id="others" name="others"></textarea>
+
+                <label for="serial-number">FMO/Serial:</label>
+                <input type="text" id="serial-number" name="serial-number">
+
+                <label for="assigned-fmo">FMO Asignado:</label>
+                <input type="text" id="assigned-fmo" name="assigned-fmo">
+
+                <label for="management">Opt/Gcia:</label>
+                <input type="text" id="management" name="management">
+
+                <label for="failure">Falla:</label>
+                <textarea id="failure" name="failure"></textarea>
+
+                <label for="assigned-to">Asignado A:</label>
+                <input type="text" id="assigned-to" name="assigned-to">
+
+                <label for="st-request-number">N. Solicitud S.T.:</label>
+                <input type="text" id="st-request-number" name="st-request-number">
+
+                <label for="daet-request-number">N. Solicitud DAET:</label>
+                <input type="text" id="daet-request-number" name="daet-request-number">
+
+                <label for="delivered-by">Entregado Por:</label>
+                <input type="text" id="delivered-by" name="delivered-by">
+
+                <label for="image">Adjuntar Imagen:</label>
+                <input type="file" id="image" name="image" accept="image/*">
+
+                <button type="submit">Guardar Recibo</button>
+            </form>
+        </section>
+    </main>
+</body>
+</html>

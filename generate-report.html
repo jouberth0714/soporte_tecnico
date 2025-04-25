@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Soporte Técnico</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* --- Estilos Generales --- */
+        body {
+            font-family: sans-serif;
+            background-color: #f4f4f4; /* Color de respaldo */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            min-height: 100vh; /* Asegura que el body ocupe al menos la altura del viewport */
+            margin: 0;
+            background-image: url('imagenes/2.jpg'); /* Imagen de fondo para toda la página */
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        /* --- Estilos del Encabezado --- */
+        .header {
+            background-color: rgba(255, 255, 255, 0.8);
+            color: rgb(0, 0, 0);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo-container {
+            margin-right: 20px;
+        }
+
+        .logo {
+            max-height: 50px;
+        }
+
+        .header .title {
+            margin: 0;
+            font-size: 2em;
+        }
+
+        /* --- Estilos del Menú de Navegación --- */
+        .menu {
+            background-color: rgba(221, 221, 221, 0.8);
+            width: 100%;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        .menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            color: #007bff;
+        }
+
+    /* --- Contenedor Principal del Reporte --- */
+    .report-container {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 500px; /* Ajusta el ancho según sea necesario */
+        text-align: left;
+        margin-left: auto; /* Empuja el contenedor hacia la derecha */
+        margin-right: 20px; /* Añade un margen derecho para separarlo del borde */
+    }
+
+        /* --- Título de la Sección de Reporte --- */
+        .report-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* --- Estilos del Formulario de Reporte --- */
+        .report-form label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        .report-form select {
+            width: calc(100% - 12px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .report-form button {
+            background-color: #28a745; /* Color verde para generar */
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .report-form button:hover {
+            background-color: #1e7e34;
+        }
+
+        /* --- Contenedor para la Salida del Reporte --- */
+        #report-output {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            white-space: pre-wrap; /* Conserva los saltos de línea */
+            font-family: monospace; /* Fuente monoespaciada para mejor legibilidad de datos */
+            font-size: 14px;
+        }
+
+        #report-output h3 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
+        </div>
+        <h1 class="title">Sistema de Soporte Técnico</h1>
+    </header>
+
+    <nav class="menu">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
+            <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
+            <li><a href="salida-equipos .html">Salida de equipos</a></li>
+            <li><a href="generate-report.html">Generar Reporte</a></li>
+        </ul>
+    </nav>
+
+    <div class="report-container">
+        <h2>Generar Reporte</h2>
+        <form id="report-form" class="report-form">
+            <label for="report-type">Tipo de Reporte:</label>
+            <select id="report-type" name="report-type" required>
+                <option value="detallado">Detallado</option>
+                <option value="por-equipos">Por Equipos</option>
+                <option value="inventario">Inventario General</option>
+                <option value="incidencias">Incidencias Resueltas</option>
+                </select>
+
+            <button id="generate-report">Generar Reporte</button>
+        </form>
+        <div id="report-output">
+            </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateReportButton = document.getElementById('generate-report');
+            const reportTypeSelect = document.getElementById('report-type');
+            const reportOutputDiv = document.getElementById('report-output');
+
+            generateReportButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Evita la recarga de la página
+
+                const selectedReportType = reportTypeSelect.value;
+                let reportContent = '';
+
+                // Simulación de generación de reporte (reemplazar con lógica real)
+                switch (selectedReportType) {
+                    case 'detallado':
+                        reportContent = `<h3>Reporte Detallado</h3>
+                        Información detallada de todos los equipos, periféricos y componentes registrados.
+                        Incluye fechas de registro, estado, ubicación, y detalles específicos de cada ítem.`;
+                        break;
+                    case 'por-equipos':
+                        reportContent = `<h3>Reporte Por Equipos</h3>
+                        Listado de todos los equipos registrados con sus detalles principales.
+                        Se puede filtrar por tipo de equipo, marca, modelo, etc.`;
+                        break;
+                    case 'inventario':
+                        reportContent = `<h3>Inventario General</h3>
+                        Resumen completo de todos los activos de soporte técnico.
+                        Cantidad total de equipos, periféricos y componentes.`;
+                        break;
+                    case 'incidencias':
+                        reportContent = `<h3>Reporte de Incidencias Resueltas</h3>
+                        Listado de todas las incidencias de soporte técnico que han sido resueltas.
+                        Incluye fechas de apertura, cierre, descripción del problema y solución.`;
+                        break;
+                    default:
+                        reportContent = '<p>No se ha seleccionado un tipo de reporte válido.</p>';
+                }
+
+                reportOutputDiv.innerHTML = reportContent;
+            });
+        });
+    </script>
+</body>
+</html>

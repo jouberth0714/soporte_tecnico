@@ -1,0 +1,155 @@
+/* --- Estilos Generales --- */
+body {
+    font-family: sans-serif;
+    background-color: #f4f4f4; /* Color de respaldo */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh; /* Asegura que el body ocupe al menos la altura del viewport */
+    margin: 0;
+    background-image: url('imagenes/2.jpg'); /* Imagen de fondo para toda la página */
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+/* --- Estilos del Encabezado --- */
+.header {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con transparencia */
+    color: rgb(0, 0, 0); /* Texto negro */
+    padding: 20px; /* Espacio interno alrededor del encabezado */
+    text-align: center; /* Centra el texto dentro del encabezado */
+    width: 100%; /* El encabezado ocupa todo el ancho del contenedor padre */
+    margin-bottom: 20px; /* Margen inferior para separar del siguiente elemento */
+    display: flex;
+    justify-content: center; /* Centra los elementos hijos horizontalmente */
+    align-items: center; /* Centra los elementos hijos verticalmente */
+}
+
+.logo-container {
+    margin-right: 20px; /* Espacio a la derecha del contenedor del logo */
+}
+
+.logo {
+    max-height: 50px; /* Altura máxima del logo */
+}
+
+.header .title {
+    margin: 0; /* Elimina los márgenes predeterminados del título */
+    font-size: 2em; /* Tamaño de la fuente del título (2 veces el tamaño normal) */
+}
+
+/* --- Estilos del Menú de Navegación --- */
+.menu {
+    background-color: rgba(221, 221, 221, 0.8); /* Fondo gris claro con transparencia */
+    width: 100%; /* El menú ocupa todo el ancho del contenedor padre */
+    padding: 10px 0; /* Espacio interno arriba y abajo del menú */
+    margin-bottom: 20px; /* Margen inferior para separar del siguiente elemento */
+}
+
+.menu ul {
+    list-style: none; /* Elimina los puntos de la lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    margin: 0; /* Elimina los márgenes predeterminados de la lista */
+    text-align: center; /* Centra el texto de los elementos de la lista */
+}
+
+.menu li {
+    display: inline; /* Muestra los elementos de la lista en línea horizontalmente */
+    margin: 0 15px; /* Margen a la izquierda y derecha de cada elemento de la lista */
+}
+
+.menu a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: #333; /* Color de texto del enlace (gris oscuro) */
+    font-weight: bold; /* Texto del enlace en negrita */
+}
+
+.menu a:hover {
+    color: #007bff; /* Color del texto del enlace al pasar el ratón (azul) */
+}
+
+/* --- Contenedor Principal del Login --- */
+.login-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco con ligera transparencia */
+    padding: 30px; /* Espacio interno alrededor del contenedor del login */
+    border-radius: 8px; /* Bordes redondeados del contenedor */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave alrededor del contenedor */
+    width: 350px; /* Ancho fijo del contenedor del login */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    margin-left: auto; /* Empuja el contenedor hacia la derecha */
+    margin-right: 20px; /* Añade un margen derecho para separarlo del borde */
+}
+    /* --- Título del Formulario --- */
+    h2 {
+        color: #333; /* Color del texto del título (gris oscuro) */
+        margin-bottom: 20px; /* Margen inferior debajo del título */
+    }
+
+    /* --- Grupo de Formulario (Label + Input) --- */
+    .form-group {
+        margin-bottom: 20px; /* Margen inferior entre los grupos de formulario */
+    }
+
+    /* --- Etiqueta de los Campos --- */
+    label {
+        display: block; /* Hace que la etiqueta ocupe toda la línea */
+        margin-bottom: 5px; /* Margen inferior debajo de la etiqueta */
+        color: #555; /* Color del texto de la etiqueta (gris medio) */
+        text-align: left; /* Alinea el texto de la etiqueta a la izquierda */
+    }
+
+    /* --- Campos de Entrada de Texto y Contraseña --- */
+    input[type="text"],
+    input[type="password"] {
+        width: calc(100% - 22px); /* Ancho del input (100% menos el borde y el padding) */
+        padding: 10px; /* Espacio interno dentro del input */
+        border: 1px solid #ddd; /* Borde gris claro */
+        border-radius: 4px; /* Bordes redondeados del input */
+        box-sizing: border-box; /* Incluye el padding y el borde en el ancho total */
+        font-size: 16px; /* Tamaño de la fuente del texto dentro del input */
+    }
+
+    /* --- Botón de Enviar --- */
+    button {
+        background-color: #007bff; /* Color de fondo del botón (azul) */
+        color: white; /* Color del texto del botón (blanco) */
+        padding: 12px 20px; /* Espacio interno dentro del botón */
+        border: none; /* Elimina el borde del botón */
+        border-radius: 4px; /* Bordes redondeados del botón */
+        cursor: pointer; /* Cambia el cursor al pasar el ratón para indicar que esClickable */
+        font-size: 16px; /* Tamaño de la fuente del texto del botón */
+        transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+    }
+
+    button:hover {
+        background-color: #0056b3; /* Color de fondo del botón al pasar el ratón (azul oscuro) */
+    }
+
+    /* --- Enlace para Crear Cuenta --- */
+    .signup-link {
+        margin-top: 20px; /* Margen superior encima del enlace */
+        font-size: 14px; /* Tamaño de la fuente del enlace */
+        color: #777; /* Color del texto del enlace (gris claro) */
+    }
+
+    .signup-link a {
+        color: #007bff; /* Color del texto del enlace (azul) */
+        text-decoration: none; /* Elimina el subrayado del enlace */
+    }
+
+    .signup-link a:hover {
+        text-decoration: underline; /* Subraya el enlace al pasar el ratón */
+    }
+    .user-info {
+        position: absolute; /* Para posicionarlo relativamente al body o un contenedor padre */
+        top: 10px; /* Ajusta la distancia desde la parte superior */
+        right: 20px; /* Ajusta la distancia desde la derecha */
+        background-color: rgba(255, 255, 255, 0.7); /* Fondo suave */
+        padding: 8px 15px;
+        border-radius: 5px;
+        font-size: 0.9em;
+        color: #555;
+        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    }
+    
+ 
