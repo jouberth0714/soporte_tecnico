@@ -17,16 +17,17 @@
     <nav class="menu">
         <ul>
             <li><a href="index.html">Inicio</a></li>
+            <li><a href="componentes.html">Componentes</a></li>
             <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
             <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
-            <li><a href="salida-equipos .html">Salida de equipos</a></li>
             <li><a href="generate-report.html">Generar Reporte</a></li>
         </ul>
     </nav>
-
+<!--     
+<body>
     <div class="login-container">
         <h2>Iniciar Sesión</h2>
-        <form action="/login" method="POST">
+        <form id="login-form" action="/login.php" method="POST">
             <div class="form-group">
                 <label for="username">Usuario:</label>
                 <input type="text" id="username" name="username" required>
@@ -37,15 +38,62 @@
             </div>
             <button type="submit">Iniciar Sesión</button>
         </form>
+        <div class="error-message" id="error-message">
+        </div>
         <div class="signup-link">
             ¿No tienes una cuenta? <a href="crear-cuenta.html">Crear cuenta</a>
         </div>
     </div>
 
-</body>
-<body>
-    <div class="user-info">
+    <div class="user-info" id="user-info">
         Bienvenido, <span id="nombre-usuario"></span>
     </div>
-    </body>
+
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const errorMessageDiv = document.getElementById('error-message');
+        const userInfoDiv = document.getElementById('user-info');
+        const nombreUsuarioSpan = document.getElementById('nombre-usuario');
+
+        loginForm.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Evitar la recarga de la página por defecto
+
+            const formData = new FormData(loginForm);
+
+            try {
+                const response = await fetch(loginForm.action, {
+                    method: loginForm.method,
+                    body: formData
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    // Autenticación exitosa
+                    localStorage.setItem('username', data.username); // Guardar el nombre de usuario
+                    window.location.href = 'componentes.html'; // Redirigir
+                } else {
+                    // Autenticación fallida
+                    errorMessageDiv.textContent = data.message || 'Credenciales incorrectas. Por favor, inténtalo de nuevo.';
+                    errorMessageDiv.style.display = 'block';
+                }
+
+            } catch (error) {
+                console.error('Error al enviar la solicitud:', error);
+                errorMessageDiv.textContent = 'Error de conexión. Por favor, inténtalo de nuevo más tarde.';
+                errorMessageDiv.style.display = 'block';
+            }
+        });
+
+        // Verificar si ya hay una sesión activa al cargar la página (opcional)
+        const loggedInUsername = localStorage.getItem('username');
+        if (loggedInUsername) {
+            document.querySelector('.login-container').style.display = 'none';
+            userInfoDiv.style.display = 'block';
+            nombreUsuarioSpan.textContent = loggedInUsername;
+            // Si quieres redirigir automáticamente si ya está logueado al cargar la página:
+            // window.location.href = 'componentes.html';
+        }
+    </script>
+</body> -->
 </html>
