@@ -148,8 +148,7 @@
       box-sizing: border-box;
       margin: 15px 0 30px 0;
     }
-    .login-buttons-container button,
-    .login-buttons-container a {
+    .login-buttons-container button {
       padding: 10px 20px;
       font-size: 16px;
       cursor: pointer;
@@ -158,11 +157,8 @@
       border-radius: 5px;
       color: white;
       transition: background-color 0.3s;
-      text-decoration: none;
-      display: inline-block;
     }
-    .login-buttons-container button:hover,
-    .login-buttons-container a:hover {
+    .login-buttons-container button:hover {
       background-color: #0056b3;
     }
     /* --- Estilos para modal login --- */
@@ -237,10 +233,14 @@
       <h1 class="title">Sistema de Soporte Técnico</h1>
     </div>
   </header>
+
+
+
   <!-- Botones login alineados a la derecha -->
   <div class="login-buttons-container">
-    <a href="login_admin.php" id="btnAbrirLoginAdmin">Administrador</a>
-    <a href="login.php" id="btnAbrirLoginUsuario">Usuario</a>
+    <button id="btnAbrirLoginAdmin" aria-haspopup="dialog" aria-expanded="false">Administrador</button>
+    <button id="btnAbrirLoginUsuario" aria-haspopup="dialog" aria-expanded="false">Usuario</button>
+  
   </div>
 
   <div id="reloj" aria-label="Fecha y hora actual"></div>
@@ -368,9 +368,7 @@
     const modalUsuario = document.getElementById('modalLoginUsuario');
     const btnCerrarUsuario = document.getElementById('btnCerrarModalUsuario');
 
-    btnAbrirAdmin.addEventListener('click', (e) => {
-      // Si es un enlace, no abrir modal
-      if(btnAbrirAdmin.tagName === "A") return;
+    btnAbrirAdmin.addEventListener('click', () => {
       modalAdmin.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       document.getElementById('usuarioAdmin').focus();
@@ -382,9 +380,7 @@
       btnAbrirAdmin.setAttribute('aria-expanded', 'false');
     });
 
-    btnAbrirUsuario.addEventListener('click', (e) => {
-      // Si es un enlace, no abrir modal
-      if(btnAbrirUsuario.tagName === "A") return;
+    btnAbrirUsuario.addEventListener('click', () => {
       modalUsuario.style.display = 'flex';
       document.body.style.overflow = 'hidden';
       document.getElementById('usuarioUsuario').focus();

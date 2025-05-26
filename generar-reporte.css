@@ -100,48 +100,86 @@ body {
     text-decoration: none;
 }
 
-/* Contenedor principal que envuelve todos los formularios */
+/* Contenedor principal */
 .content-wrapper {
     display: flex;
-    justify-content: center;  /* Centra horizontalmente */
-    align-items: center;      /* Centra verticalmente */
-    gap: 30px;                /* Espacio entre formularios */
-    height: 100vh;            /* Altura total de la ventana para centrar verticalmente */
-    padding: 20px;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    padding: 40px 20px;
+    background-color: #f5f7fa;
+    min-height: 20vh;
     box-sizing: border-box;
-    flex-wrap: wrap;          /* Permite que bajen a otra línea en pantallas pequeñas */
 }
 
-/* Cada formulario */
-.form-container {
-    background-color: #fff;
-    padding: 25px 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    width: 300px;
+/* Contenedor de cada formulario */
+.form-container.equipos-container {
+    background-color: #ffffff;
+    padding: 30px 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    width: 320px;
     box-sizing: border-box;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Contenedor de botones centrado */
+.form-container.equipos-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Títulos */
+.form-container.equipos-container h1 {
+    font-size: 1.5rem;
+    color: #34495e;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* Botones */
 .botones {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
 }
 
-/* Estilo de los botones */
-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+.botones button {
+    background-color: #3498db;
     color: white;
-    transition: background-color 0.3s ease;
+    border: none;
+    padding: 12px 28px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 6px 12px rgba(52, 152, 219, 0.4);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
-button:hover {
-    background-color: #0056b3;
+
+
+/* Hover y focus */
+.botones button:hover,
+.botones button:focus {
+    background-color: #2980b9;
+    box-shadow: 0 8px 16px rgba(41, 128, 185, 0.6);
+    outline: none;
+}
+
+/* Responsive: en pantallas pequeñas apilar verticalmente */
+@media (max-width: 700px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 10px;
+    }
+
+    .form-container.equipos-container {
+        width: 90%;
+        max-width: 400px;
+    }
 }

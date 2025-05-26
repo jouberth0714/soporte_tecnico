@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 }
 $conn->set_charset("utf8");
 
-// Cambia los campos y la tabla por los de tu tabla de equipos
+
 $sql = "SELECT 
     id, fecha, ficha, usuario, tipo_equipo, marca, modelo, serial, estado, observaciones
     FROM recibo_equipos";

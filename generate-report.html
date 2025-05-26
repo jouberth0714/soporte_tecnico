@@ -5,52 +5,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Soporte Técnico</title>
     <link rel="stylesheet" href="generar-reporte.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+        .btn-salir-fijo {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,123,255,0.5);
+            z-index: 10000;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+        .btn-salir-fijo:hover,
+        .btn-salir-fijo:focus {
+            background-color: #0056b3;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- Botón Salir fijo arriba a la derecha -->
+    <a href="logout.php" class="btn-salir-fijo" role="button" aria-label="Salir del sistema">Salir</a>
+
     <header class="header">
         <div class="logo-container">
             <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
         </div>
-        <h1 class="title">Soporte Tècnico</h1>
+        <h1 class="title">Soporte Técnico</h1>
     </header>
     
     <nav class="menu">
         <ul>
-            <li><a href="index.html">Inicio</a></li>
             <li><a href="componentes.html">Componentes</a></li>
             <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
             <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
-            <li><a href="generate-report.html">Generar Reporte</a></li>
         </ul>
     </nav>
 
-    <head>
-        
-    <div class="content-wrapper">
-    <div class="form-container equipos-container">
-        <h1>Reporte de Recibo de Equipos</h1>
-        <form id="busquedaForm1" action="buscar_fecha.php" method="GET">
-            <div class="botones">
-                <button type="submit">Buscar</button>
-            </div>
-        </form>
-    </div>
+    <div class="content-wrapper" role="main">
+        <!-- Sección: Reporte de Recibo de Equipos -->
+        <section class="form-container equipos-container" aria-labelledby="titulo-reporte-equipos">
+            <h2 id="titulo-reporte-equipos" class="form-title">
+                <span class="icon" aria-hidden="true"><i class="fas fa-desktop"></i></span>
+                Reporte de Recibo de Equipos
+            </h2>
+            <form id="busquedaForm1" action="buscar_fecha.php" method="GET" role="search" aria-label="Buscar reporte de recibo de equipos" novalidate>
+                <div class="form-group">
+                    <!-- Aquí puedes agregar inputs si los necesitas -->
+                </div>
+                <div class="botones">
+                    <button type="submit" aria-describedby="desc-buscar-equipos" class="btn btn-primary" >
+                        <i class="fas fa-search" aria-hidden="true"></i> Buscar
+                    </button>
+                </div>
+                <p id="desc-buscar-equipos" class="sr-only">Enviar búsqueda para reporte de recibo de equipos</p>
+            </form>
+        </section>
 
-    <div class="form-container equipos-container">
-        <h1>Reporte de Componentes</h1>
-        <form id="busquedaForm2" action="buscar_componentes.php" method="GET">
-            <div class="botones">
-                <button type="submit">Buscar</button>
-            </div>
-        </form>
-    </div>
+        <!-- Sección: Reporte de Componentes -->
+        <section class="form-container equipos-container" aria-labelledby="titulo-reporte-componentes">
+            <h2 id="titulo-reporte-componentes" class="form-title">
+                <span class="icon" aria-hidden="true"><i class="fas fa-cogs"></i></span>
+                Reporte de Componentes
+            </h2>
+            <form id="busquedaForm2" action="buscar_componentes.php" method="GET" role="search" aria-label="Buscar reporte de componentes" novalidate>
+                <div class="form-group">
+                    <!-- Inputs para búsqueda -->
+                </div>
+                <div class="botones">
+                    <button type="submit" aria-describedby="desc-buscar-componentes" class="btn btn-primary">
+                        <i class="fas fa-search" aria-hidden="true"></i> Buscar
+                    </button>
+                </div>
+                <p id="desc-buscar-componentes" class="sr-only">Enviar búsqueda para reporte de componentes</p>
+            </form>
+        </section>
 
-    <div class="form-container equipos-container">
-        <h1>Reporte de Periféricos</h1>
-        <form id="busquedaForm3" action="buscar_perifericos.php" method="GET">
-            <div class="botones">
-                <button type="submit">Buscar</button>
-            </div>
-        </form>
+        <!-- Sección: Reporte de Periféricos -->
+        <section class="form-container equipos-container" aria-labelledby="titulo-reporte-perifericos">
+            <h2 id="titulo-reporte-perifericos" class="form-title">
+                <span class="icon" aria-hidden="true"><i class="fas fa-keyboard"></i></span>
+                Reporte de Periféricos
+            </h2>
+            <form id="busquedaForm3" action="buscar_perifericos.php" method="GET" role="search" aria-label="Buscar reporte de periféricos" novalidate>
+                <div class="form-group">
+                    <!-- Inputs para búsqueda -->
+                </div>
+                <div class="botones">
+                    <button type="submit" aria-describedby="desc-buscar-perifericos" class="btn btn-primary">
+                        <i class="fas fa-search" aria-hidden="true"></i> Buscar
+                    </button>
+                </div>
+                <p id="desc-buscar-perifericos" class="sr-only">Enviar búsqueda para reporte de periféricos</p>
+            </form>
+        </section>
     </div>
-</div>
+</body>
+</html>

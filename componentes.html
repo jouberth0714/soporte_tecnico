@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recibo de equipos</title>
-    <link rel="stylesheet" href="componentes.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recibo de equipos</title>
+  <link rel="stylesheet" href="componentes.css" />
+  <style>
+    /* Estilos para el botón salir fijo */
+    .btn-salir-fijo {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background-color: #007bff;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 2px 6px rgba(0,123,255,0.5);
+      z-index: 10000;
+      transition: background-color 0.3s ease;
+      user-select: none;
+    }
+    .btn-salir-fijo:hover,
+    .btn-salir-fijo:focus {
+      background-color: #0056b3;
+      outline: none;
+    }
+  </style>
 </head>
 <body>
-    <header class="header">
-        <div class="logo-container">
-            <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
-        </div>
-        <h1 class="title">Recibo de componentes</h1>
-    </header>
-
-    <nav class="menu">
-        <ul>
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
-            <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
-            <li><a href="generate-report.html">Generar Reporte</a></li>
-        </ul>
-    </nav>
-
-    <div class="form-container">
-        <fieldset>
-            <legend>Registro de Componentes</legend>
-            <form action="guardar_componentes.php" method="POST">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="tarjetaMadre">Tarjeta Madre:</label>
-                        <input type="text" id="tarjetaMadre" name="tarjetaMadre" placeholder="Marca">
-                        <input type="text" name="serialTarjetaMadre" placeholder="Serial">
-                    </div>
-                    <div class="form-group">
-                        <label for="fuentePoder">Fuente de Poder:</label>
-                        <input type="text" id="fuentePoder" name="fuentePoder" placeholder="Marca">
-                        <input type="text" name="serialFuentePoder" placeholder="Serial">
-                    </div>
-                    <div class="form-group">
-                        <label for="tarjetaVideo">Tarjeta de Video:</label>
-                        <input type="text" id="tarjetaVideo" name="tarjetaVideo" placeholder="Marca">
-                        <input type="text" name="serialTarjetaVideo" placeholder="Serial">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="tarjetaRed">Tarjeta de Red:</label>
-                        <input type="text" id="tarjetaRed" name="tarjetaRed" placeholder="Marca">
-                        <input type="text" name="serialTarjetaRed" placeholder="Serial">
-                    </div>
-                     <div class="form-group">
-                        <label for="memoriaRam">Memoria RAM:</label>
-                        <input type="text" id="memoriaRam" name="memoriaRam" placeholder="Marca">
-                        <input type="text" name="serialMemoriaRam" placeholder="Serial">
-                        <input type="text" name="capacidadMemoriaRam" placeholder="Capacidad">
-                    </div>
-                    <div class="form-group">
-                        <label for="discoDuro">Disco Duro:</label>
-                        <input type="text" id="discoDuro" name="discoDuro" placeholder="Marca">
-                        <input type="text" name="serialDiscoDuro" placeholder="Serial">
-                        <input type="text" name="capacidadDiscoDuro" placeholder="Capacidad">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group" style="width: 100%;">
-                        <label for="observaciones">Observaciones:</label>
-                        <textarea id="observaciones" name="observaciones" rows="4"></textarea>
-                    </div>
-                </div>
-                <button type="submit">Guardar</button>
-            </form>
-        </fieldset>
+  <header class="header">
+    <div class="logo-container">
+      <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo" />
     </div>
+    <h1 class="title">Recibo de componentes</h1>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
+      <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
+      <li><a href="generate-report.html">Generar Reporte</a></li>
+    </ul>
+  </nav>
+
+  <div class="form-container">
+    <fieldset>
+      <legend>Registro de Componentes</legend>
+      <form action="guardar_componentes.php" method="POST">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tarjetaMadre">Tarjeta Madre:</label>
+            <input type="text" id="tarjetaMadre" name="tarjetaMadre" placeholder="Marca" />
+            <input type="text" name="serialTarjetaMadre" placeholder="Serial" />
+          </div>
+          <div class="form-group">
+            <label for="fuentePoder">Fuente de Poder:</label>
+            <input type="text" id="fuentePoder" name="fuentePoder" placeholder="Marca" />
+            <input type="text" name="serialFuentePoder" placeholder="Serial" />
+          </div>
+          <div class="form-group">
+            <label for="tarjetaVideo">Tarjeta de Video:</label>
+            <input type="text" id="tarjetaVideo" name="tarjetaVideo" placeholder="Marca" />
+            <input type="text" name="serialTarjetaVideo" placeholder="Serial" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tarjetaRed">Tarjeta de Red:</label>
+            <input type="text" id="tarjetaRed" name="tarjetaRed" placeholder="Marca" />
+            <input type="text" name="serialTarjetaRed" placeholder="Serial" />
+          </div>
+          <div class="form-group">
+            <label for="memoriaRam">Memoria RAM:</label>
+            <input type="text" id="memoriaRam" name="memoriaRam" placeholder="Marca" />
+            <input type="text" name="serialMemoriaRam" placeholder="Serial" />
+            <input type="text" name="capacidadMemoriaRam" placeholder="Capacidad" />
+          </div>
+          <div class="form-group">
+            <label for="discoDuro">Disco Duro:</label>
+            <input type="text" id="discoDuro" name="discoDuro" placeholder="Marca" />
+            <input type="text" name="serialDiscoDuro" placeholder="Serial" />
+            <input type="text" name="capacidadDiscoDuro" placeholder="Capacidad" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group" style="width: 100%;">
+            <label for="observaciones">Observaciones:</label>
+            <textarea id="observaciones" name="observaciones" rows="4"></textarea>
+          </div>
+        </div>
+        <button type="submit">Guardar</button>
+      </form>
+    </fieldset>
+  </div>
+
+  <!-- Botón Salir fijo -->
+  <a href="logout.php" class="btn-salir-fijo" role="button" aria-label="Salir del sistema">Salir</a>
 </body>
 </html>

@@ -1,127 +1,153 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Sistema de Soporte Técnico</title>
-    <link rel="stylesheet" href="styles_recibo_equipos.css">
+    <link rel="stylesheet" href="styles_recibo_equipos.css" />
+    <style>
+        /* Botón salir fijo arriba a la derecha */
+        .btn-salir-fijo {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 18px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,123,255,0.5);
+            z-index: 10000;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+        .btn-salir-fijo:hover,
+        .btn-salir-fijo:focus {
+            background-color: #0056b3;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- Botón Salir fijo -->
+    <a href="logout.php" class="btn-salir-fijo" role="button" aria-label="Salir del sistema">Salir</a>
+
     <header class="header">
         <div class="logo-container">
-            <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
+            <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo" />
         </div>
         <h1 class="title">Sistema de Soporte Técnico</h1>
     </header>
 
     <nav class="menu">
         <ul>
-            <li><a href="index.html">Inicio</a></li>
             <li><a href="componentes.html">Componentes</a></li>
             <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
             <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
             <li><a href="generate-report.html">Generar Reporte</a></li>
         </ul>
     </nav>
-   <main class="container">
-    <section class="form-section">
-        <h2>Recibo de Periféricos</h2>
-        <form id="receipt-form" action="guardar-recibo.php" method="post" enctype="multipart/form-data" class="two-column-form">
 
-            <div class="form-group">
-                <label for="date">Fecha:</label>
-                <input type="date" id="date" name="date" required>
-            </div>
+    <main class="container">
+        <section class="form-section">
+            <h2>Recibo de Periféricos</h2>
+            <form id="receipt-form" action="guardar-recibo.php" method="post" enctype="multipart/form-data" class="two-column-form">
 
-            <div class="form-group">
-                <label for="record-number">Ficha:</label>
-                <input type="text" id="record-number" name="record-number">
-            </div>
-
-            <div class="form-group">
-                <label for="user-name">Usuario:</label>
-                <input type="text" id="user-name" name="user-name">
-            </div>
-
-            <div class="form-group">
-                <label for="extension-phone">Ext/Tlf:</label>
-                <input type="text" id="extension-phone" name="extension-phone">
-            </div>
-
-            <fieldset class="full-width">
-                <legend>Periféricos:</legend>
-                <div class="checkbox-group">
-                    <label><input type="checkbox" name="peripherals[]" value="monitor"> Monitor</label>
-                    <label><input type="checkbox" name="peripherals[]" value="teclado"> Teclado</label>
-                    <label><input type="checkbox" name="peripherals[]" value="scanner"> Scanner</label>
-                    <label><input type="checkbox" name="peripherals[]" value="pendrives"> Pendrives</label>
-                    <label><input type="checkbox" name="peripherals[]" value="regulador"> Regulador</label>
-                    <label><input type="checkbox" name="peripherals[]" value="impresora"> Impresora</label>
-                    <label><input type="checkbox" name="peripherals[]" value="mouse"> Mouse</label>
-                    <label><input type="checkbox" name="peripherals[]" value="toner"> Tóner</label>
+                <div class="form-group">
+                    <label for="date">Fecha:</label>
+                    <input type="date" id="date" name="date" required />
                 </div>
-            </fieldset>
 
-            <div class="form-group full-width">
-                <label for="components">Componentes:</label>
-                <textarea id="components" name="components"></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="record-number">Ficha:</label>
+                    <input type="text" id="record-number" name="record-number" />
+                </div>
 
-            <div class="form-group full-width">
-                <label for="others">Otros:</label>
-                <textarea id="others" name="others"></textarea>
-            </div>
+                <div class="form-group">
+                    <label for="user-name">Usuario:</label>
+                    <input type="text" id="user-name" name="user-name" />
+                </div>
 
-            <div class="form-group">
-                <label for="serial-number">FMO/Serial:</label>
-                <input type="text" id="serial-number" name="serial-number">
-            </div>
+                <div class="form-group">
+                    <label for="extension-phone">Ext/Tlf:</label>
+                    <input type="text" id="extension-phone" name="extension-phone" />
+                </div>
 
-            <div class="form-group">
-                <label for="assigned-fmo">FMO Asignado:</label>
-                <input type="text" id="assigned-fmo" name="assigned-fmo">
-            </div>
+                <fieldset class="full-width">
+                    <legend>Periféricos:</legend>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="peripherals[]" value="monitor" /> Monitor</label>
+                        <label><input type="checkbox" name="peripherals[]" value="teclado" /> Teclado</label>
+                        <label><input type="checkbox" name="peripherals[]" value="scanner" /> Scanner</label>
+                        <label><input type="checkbox" name="peripherals[]" value="pendrives" /> Pendrives</label>
+                        <label><input type="checkbox" name="peripherals[]" value="regulador" /> Regulador</label>
+                        <label><input type="checkbox" name="peripherals[]" value="impresora" /> Impresora</label>
+                        <label><input type="checkbox" name="peripherals[]" value="mouse" /> Mouse</label>
+                        <label><input type="checkbox" name="peripherals[]" value="toner" /> Tóner</label>
+                    </div>
+                </fieldset>
 
-            <div class="form-group">
-                <label for="management">Opt/Gcia:</label>
-                <input type="text" id="management" name="management">
-            </div>
+                <div class="form-group full-width">
+                    <label for="components">Componentes:</label>
+                    <textarea id="components" name="components"></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="failure">Falla:</label>
-                <textarea id="failure" name="failure"></textarea>
-            </div>
+                <div class="form-group full-width">
+                    <label for="others">Otros:</label>
+                    <textarea id="others" name="others"></textarea>
+                </div>
 
-            <div class="form-group">
-                <label for="assigned-to">Asignado A:</label>
-                <input type="text" id="assigned-to" name="assigned-to">
-            </div>
+                <div class="form-group">
+                    <label for="serial-number">FMO/Serial:</label>
+                    <input type="text" id="serial-number" name="serial-number" />
+                </div>
 
-            <div class="form-group">
-                <label for="st-request-number">N. Solicitud S.T.:</label>
-                <input type="text" id="st-request-number" name="st-request-number">
-            </div>
+                <div class="form-group">
+                    <label for="assigned-fmo">FMO Asignado:</label>
+                    <input type="text" id="assigned-fmo" name="assigned-fmo" />
+                </div>
 
-            <div class="form-group">
-                <label for="daet-request-number">N. Solicitud DAET:</label>
-                <input type="text" id="daet-request-number" name="daet-request-number">
-            </div>
+                <div class="form-group">
+                    <label for="management">Opt/Gcia:</label>
+                    <input type="text" id="management" name="management" />
+                </div>
 
-            <div class="form-group">
-                <label for="delivered-by">Entregado Por:</label>
-                <input type="text" id="delivered-by" name="delivered-by">
-            </div>
+                <div class="form-group">
+                    <label for="failure">Falla:</label>
+                    <textarea id="failure" name="failure"></textarea>
+                </div>
 
-            <div class="form-group full-width">
-                <label for="image">Adjuntar Imagen:</label>
-                <input type="file" id="image" name="image" accept="image/*">
-            </div>
+                <div class="form-group">
+                    <label for="assigned-to">Asignado A:</label>
+                    <input type="text" id="assigned-to" name="assigned-to" />
+                </div>
 
-            <div class="form-group full-width">
-                <button type="submit" class="submit-button">Guardar Recibo</button>
-            </div>
-        </form>
-    </section>
-</main>
+                <div class="form-group">
+                    <label for="st-request-number">N. Solicitud S.T.:</label>
+                    <input type="text" id="st-request-number" name="st-request-number" />
+                </div>
+
+                <div class="form-group">
+                    <label for="daet-request-number">N. Solicitud DAET:</label>
+                    <input type="text" id="daet-request-number" name="daet-request-number" />
+                </div>
+
+                <div class="form-group">
+                    <label for="delivered-by">Entregado Por:</label>
+                    <input type="text" id="delivered-by" name="delivered-by" />
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="image">Adjuntar Imagen:</label>
+                    <input type="file" id="image" name="image" accept="image/*" />
+                </div>
+
+                <div class="form-group full-width">
+                    <button type="submit" class="submit-button">Guardar Recibo</button>
+                </div>
+            </form>
+        </section>
+    </main>
 </body>
 </html>

@@ -2,11 +2,36 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recibo de equipos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles_recibo_equipos.css">
+    <style>
+        .btn-salir-fijo {
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 6px rgba(0,123,255,0.5);
+            z-index: 10000;
+            transition: background-color 0.3s ease;
+            user-select: none;
+        }
+        .btn-salir-fijo:hover,
+        .btn-salir-fijo:focus {
+            background-color: #0056b3;
+            outline: none;
+        }
+    </style>
 </head>
 <body>
+    <!-- Botón Salir fijo arriba a la derecha -->
+    <a href="logout.php" class="btn-salir-fijo" role="button" aria-label="Salir del sistema">Salir</a>
+
     <header class="header">
         <div class="logo-container">
             <img src="imagenes/fmo logo.png" alt="Logotipo de la Empresa" class="logo">
@@ -16,14 +41,12 @@
 
     <nav class="menu">
         <ul>
-            <li><a href="index.html">Inicio</a></li>
             <li><a href="componentes.html">Componentes</a></li>
             <li><a href="Recibo de equipos .html">Recibo de equipos</a></li>
             <li><a href="Recibo de Periféricos y Componentes.html">Recibo de Periféricos y Componentes</a></li>
             <li><a href="generate-report.html">Generar Reporte</a></li>
         </ul>
     </nav>
-
     <div class="container">
         <h1>Recibo de Equipos</h1>
         <form action="procesar_recibo.php" method="POST" class="recibo-form">
@@ -116,8 +139,8 @@
                 <input type="text" id="otra-aplicacion" name="otra-aplicacion">
             </div>
             <div class="form-group" style="grid-column: 1 / -1;">
-                <label for="carpeta-red">Carpeta de Red:</label>
-                <input type="text" id="carpeta-red" name="carpeta-red">
+                <label for="carpeta_red">Carpeta de Red:</label>
+                <input type="text" id="carpeta_red" name="carpeta_red">
             </div>
             <div class="form-group form-group-full" style="grid-column: 1 / -1;">
                 <label for="observacion">Observación:</label>
@@ -142,8 +165,5 @@
             <button type="submit" class="submit-button">Guardar Recibo</button>
         </form>
     </div>
-   
-  
-</form>
 </body>
 </html>
